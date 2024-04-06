@@ -13,13 +13,23 @@ def hang_man():
     display += "_"
   print(display)
   
-  user_choice = input("Guess a letter. ").lower()
+  end_of_game = False
   
-  for position in range(word_length):
-    letter = chosen_word[position]
-    if letter == user_choice:
-      display[position] = letter
-  print(display)
+  while not end_of_game:
+  
+    user_choice = input("Guess a letter. ").lower()
+      
+    for position in range(word_length):
+      letter = chosen_word[position]
+      if letter == user_choice:
+        display[position] = letter
+        
+    print(display)
+    
+    if "_" not in display:
+      end_of_game = True
+      print("Please try again!")
+      break
   
 hang_man()
     
