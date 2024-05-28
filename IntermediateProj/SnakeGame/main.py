@@ -1,6 +1,7 @@
 # Import necessary modules
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 # Create the screen object
@@ -12,6 +13,7 @@ screen.tracer(0)  # Turn off animation updates (manual update)
 
 # Create a snake object from the Snake class
 snake = Snake()
+food = Food()
 
 # Listen for keyboard inputs
 screen.listen()
@@ -24,9 +26,13 @@ screen.onkey(snake.right, "Right")  # Call snake.right when "Right" arrow key is
 game_is_on = True
 while game_is_on:
     screen.update()  # Update the screen with the latest changes
-    time.sleep(0.05)  # Delay to control the speed of the game loop
+    time.sleep(0.08)  # Delay to control the speed of the game loop
     
     snake.move()  # Move the snake based on the current direction
+    
+    #Detect collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 # Wait for a mouse click on the screen to exit, after the loop finishes
 screen.exitonclick()
