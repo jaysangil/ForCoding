@@ -25,7 +25,14 @@ class Snake:
             new_segment.color("#39FF14")  # Set the segment color to neon green
             new_segment.penup()  # Lift the pen to avoid drawing lines
             new_segment.goto(position)  # Move the segment to the starting position
-            self.segments.append(new_segment)  # Add the segment to the snake's body       
+            self.segments.append(new_segment)  # Add the segment to the snake's body  
+            
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segment.clear()     
+        self.create_snake()
+        self.head = self.segments[0]
             
     def extend(self):
         self.add_segment(self.segments[-1].position())#add new segment to the snake.
