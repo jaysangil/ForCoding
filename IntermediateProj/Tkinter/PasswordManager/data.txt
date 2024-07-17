@@ -1,1 +1,1 @@
-test1 | takuya.genesys01@gmail.com | testtest
+test1 | test@gmail.com | testtest
